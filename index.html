@@ -494,6 +494,45 @@ function type() {
 }
 
 setTimeout(type, newTextDelay);
+
+// Theme toggle functionality
+const themeToggle = document.querySelector('.theme-toggle');
+let isDark = true;
+
+themeToggle.addEventListener('click', () => {
+  isDark = !isDark;
+  
+  if (isDark) {
+    // Dark mode
+    document.body.style.background = '#0A0E27';
+    document.body.style.color = '#F8F9FA';
+    themeToggle.textContent = '🌙';
+  } else {
+    // Light mode
+    document.body.style.background = '#F8F9FA';
+    document.body.style.color = '#0A0E27';
+    themeToggle.textContent = '☀️';
+    
+    // Update sections for light mode
+    document.querySelectorAll('.about, .skills, .contact').forEach(section => {
+      section.style.background = 'rgba(0,0,0,0.02)';
+    });
+  }
+  
+  // Update all sections
+  if (!isDark) {
+    document.querySelectorAll('section').forEach(section => {
+      section.style.background = section.classList.contains('about') || 
+                                 section.classList.contains('skills') || 
+                                 section.classList.contains('contact') ? 
+                                 'rgba(0,0,0,0.03)' : 'transparent';
+    });
+  } else {
+    document.querySelectorAll('.about').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
+    document.querySelectorAll('.skills').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
+    document.querySelectorAll('.contact').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
+  }
+});
 </script>
 
 </body>
