@@ -358,8 +358,53 @@ footer {
     .hero h1 { font-size: 2.2rem; }
     .about-grid, .stats-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
+    .cube-container { display: none; }
 }
 </style>
+
+/* 3D Revolving Cube */
+.cube-container {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    perspective: 1000px;
+}
+
+.cube {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 15s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(56,189,248,0.15);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    backdrop-filter: blur(5px);
+}
+
+.cube-face.front  { transform: rotateY(0deg) translateZ(75px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(75px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(75px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(75px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
 </head>
 <body>
 
@@ -377,6 +422,17 @@ footer {
 
 <section id="home" class="hero">
     <div>
+        <!-- 3D Revolving Cube -->
+        <div class="cube-container">
+            <div class="cube">
+                <div class="cube-face front">NX</div>
+                <div class="cube-face back">C#</div>
+                <div class="cube-face right">API</div>
+                <div class="cube-face left">CAD</div>
+                <div class="cube-face top">3D</div>
+                <div class="cube-face bottom">++</div>
+            </div>
+        </div>
         <h1>Rahul Jukanti<br><span class="highlight">CAD Automation Engineer</span></h1>
         <p>Transforming industrial design workflows with intelligent automation using NX Open API and C#. Specialized in centrifugal fan systems and custom CAD solutions.</p>
         <div class="cta-group">
