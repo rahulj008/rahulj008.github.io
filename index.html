@@ -567,10 +567,11 @@
             </div>
             <div>
                 <h3>Send a Message</h3>
-                <form onsubmit="event.preventDefault(); alert('Thanks for the message! (This is a demo)');">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
+<form action="https://formspree.io/f/xjkzqvwp" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <input type="hidden" name="_next" value="https://rahul-1066.github.io/">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
