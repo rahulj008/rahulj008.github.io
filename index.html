@@ -5,540 +5,593 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahul Jukanti - CAD Automation Engineer Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-   <meta name="description" content="Portfolio of Rahul Jukanti - CAD Automation Engineer specializing in NX Open, C#, and industrial automation solutions.">
- <meta property="og:title" content="Rahul Jukanti | CAD Automation Engineer & C# Developer">
- <meta property="og:description" content="Experienced CAD Automation Engineer with 2+ years building custom NX Open applications and C# automation tools.">
- <meta property="og:url" content="https://rahul-1066.github.io/">
- <meta property="og:type" content="website">
+<meta name="description" content="Portfolio of Rahul Jukanti - CAD Automation Engineer specializing in NX Open, C#, and industrial automation solutions.">
+
+<meta property="og:title" content="Rahul Jukanti | CAD Automation Engineer & C# Developer">
+<meta property="og:description" content="Experienced CAD Automation Engineer with 2+ years building custom NX Open applications and C# automation tools.">
+<meta property="og:type" content="website">
+
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
- --primary: #00D9FF;
- --secondary: #6C5CE7;
- --bg-dark: #0A0E27;
- --text-light: #F8F9FA;
- --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
- --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
- --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-html { scroll-behavior: smooth; }
-body {
- font-family: 'Inter', sans-serif;
- background: var(--bg-dark);
- color: var(--text-light);
- overflow-x: hidden;
-}
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    /* --- RESET & VARIABLES --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        /* Dark Theme (Default) */
+        --bg-body: #0A0E27;
+        --bg-glass: rgba(255, 255, 255, 0.03);
+        --bg-glass-hover: rgba(255, 255, 255, 0.08);
+        --bg-nav: rgba(10, 14, 39, 0.85);
+        --text-main: #F8F9FA;
+        --text-muted: #B0B3C7;
+        --primary: #00D9FF;
+        --secondary: #6C5CE7;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --shadow: rgba(0, 217, 255, 0.1);
+        
+        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
 
-/* Navigation */
-.nav {
- position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
- padding: 1.5rem 2rem;
- background: rgba(10, 14, 39, 0.95);
- backdrop-filter: blur(10px);
- display: flex; justify-content: space-between; align-items: center;
- border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.logo {
- font-size: 2rem; font-weight: 800;
- background: var(--gradient-3);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- cursor: pointer;
-}
-.nav-menu { display: flex; list-style: none; gap: 2rem; }
-.nav-menu a {
- color: var(--text-light); text-decoration: none;
- font-weight: 500; transition: color 0.3s;
-}
-.nav-menu a:hover { color: var(--primary); }
-.theme-toggle {
- background: rgba(255,255,255,0.1);
- border: none; padding: 0.5rem 1rem;
- border-radius: 50px; cursor: pointer;
- font-size: 1.2rem;
-}
+    /* Light Theme Overrides */
+    [data-theme="light"] {
+        --bg-body: #F0F2F5;
+        --bg-glass: rgba(255, 255, 255, 0.7);
+        --bg-glass-hover: rgba(255, 255, 255, 0.9);
+        --bg-nav: rgba(255, 255, 255, 0.85);
+        --text-main: #1A1D21;
+        --text-muted: #4A5568;
+        --primary: #0070F3; 
+        --border-color: rgba(0, 0, 0, 0.08);
+        --shadow: rgba(0, 0, 0, 0.05);
+    }
 
-/* Hero Section */
-.hero {
- min-height: 100vh; display: flex;
- align-items: center; justify-content: space-between;
- padding: 6rem 2rem 2rem; position: relative; overflow: hidden;
-}
-.hero-content { flex: 1; z-index: 1; }
-.glitch {
- font-size: 4rem; font-weight: 800;
- margin-bottom: 1rem;
- animation: glitch 3s infinite;
-}
-@keyframes glitch {
- 0%, 100% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00; }
- 15% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00; }
- 16% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff, -0.05em -0.05em 0 #fffc00; }
- 50% { text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff, 0 -0.04em 0 #fffc00; }
-}
-.typewriter h2 { font-size: 2rem; color: var(--primary); }
-.cursor { animation: blink 1s infinite; }
-@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-.tagline { font-size: 1.2rem; margin: 2rem 0; opacity: 0.9; }
-.cta-buttons { display: flex; gap: 1rem; margin-top: 2rem; }
-.btn {
- padding: 1rem 2rem; border-radius: 50px;
- font-weight: 600; text-decoration: none;
- transition: all 0.4s; display: inline-block;
-}
-.btn-primary {
- background: var(--gradient-3);
- color: white; border: none;
-}
-.btn-primary:hover {
- transform: translateY(-3px);
- box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
-}
-.btn-secondary {
- background: transparent;
- color: var(--primary);
- border: 2px solid var(--primary);
-}
-.btn-secondary:hover {
- background: var(--primary);
- color: white;
-}
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-body);
+        color: var(--text-main);
+        overflow-x: hidden;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
 
-/* 3D Cube */
-.hero-3d { perspective: 1000px; }
-.cube {
- width: 200px; height: 200px;
- position: relative;
- transform-style: preserve-3d;
- animation: rotateCube 20s infinite linear;
-}
-@keyframes rotateCube {
- from { transform: rotateX(0deg) rotateY(0deg); }
- to { transform: rotateX(360deg) rotateY(360deg); }
-}
-.cube-face {
- position: absolute; width: 200px; height: 200px;
- display: flex; align-items: center; justify-content: center;
- font-size: 2rem; font-weight: 800;
- border: 2px solid rgba(0, 217, 255, 0.3);
- background: rgba(0, 217, 255, 0.1);
- backdrop-filter: blur(10px);
-}
-.front  { transform: rotateY(0deg) translateZ(100px); }
-.back   { transform: rotateY(180deg) translateZ(100px); }
-.right  { transform: rotateY(90deg) translateZ(100px); }
-.left   { transform: rotateY(-90deg) translateZ(100px); }
-.top    { transform: rotateX(90deg) translateZ(100px); }
-.bottom { transform: rotateX(-90deg) translateZ(100px); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    
+    /* --- NAVIGATION --- */
+    .nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+        padding: 1rem 2rem;
+        background: var(--bg-nav);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 1px solid var(--border-color);
+    }
 
-/* Sections */
-section { padding: 6rem 2rem; }
-.section-title {
- font-size: 3rem; font-weight: 800;
- text-align: center; margin-bottom: 3rem;
- background: var(--gradient-3);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
-}
+    .logo {
+        font-size: 1.8rem; font-weight: 800;
+        background: var(--gradient-3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
 
-/* About Section */
-.about { 
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, rgba(108, 92, 231, 0.08) 100%);
-  padding: 4rem;
-  border-radius: 20px;
-  border: 2px solid rgba(0, 217, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1);
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-.about-content { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 3rem; 
-  align-items: center;
-}
-.lead { font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 1.5rem; }
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-.stat-card {
- background: rgba(0, 217, 255, 0.1);
- padding: 1.5rem; border-radius: 15px;
- border: 1px solid rgba(0, 217, 255, 0.2);
- text-align: center; transition: all 0.4s;
-}
-.stat-card:hover { transform: translateY(-5px); }
-.stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
-.stat-label { font-size: 0.9rem; opacity: 0.8; }
-.profile-card {
-  background: linear-gradient(135deg, rgba(108, 92, 231, 0.15) 0%, rgba(0, 217, 255, 0.1) 100%);
-  padding: 2.5rem;
-  border-radius: 20px;
-  border: 2px solid rgba(0, 217, 255, 0.25);
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.12);
-  transition: all 0.4s ease;
-}
+    .nav-wrapper { display: flex; align-items: center; gap: 2rem; }
 
-.profile-card:hover {
-  border-color: rgba(0, 217, 255, 0.5);
-  box-shadow: 0 12px 48px rgba(0, 217, 255, 0.2);
-  transform: translateY(-5px);
-}
-   .about-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+    .nav-menu { display: flex; list-style: none; gap: 2rem; align-items: center; }
+    .nav-menu a {
+        color: var(--text-main); text-decoration: none;
+        font-weight: 500; transition: color 0.3s;
+        font-size: 0.95rem; position: relative;
+    }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+    
+    /* Underline animation for nav links */
+    .nav-menu a::after {
+        content: ''; position: absolute; width: 0; height: 2px;
+        bottom: -4px; left: 0; background: var(--primary);
+        transition: width 0.3s;
+    }
+    .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
 
-.about-text p {
-  line-height: 1.8;
-  font-size: 1rem;
-}
+    /* RESUME BUTTON STYLING */
+    .nav-btn {
+        background: var(--primary);
+        color: #000 !important; /* Dark text for better contrast on bright button */
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex; align-items: center; gap: 8px;
+    }
+    .nav-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--shadow);
+    }
+    .nav-btn::after { display: none; } /* Remove underline from button */
 
-.about-text p:first-of-type {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--primary);
-}
- background: rgba(255,255,255,0.05);
- padding: 2rem; border-radius: 20px;
- border: 1px solid rgba(255,255,255,0.1);
-}
-.avatar {
- width: 80px; height: 80px; border-radius: 50%;
- background: var(--gradient-3);
- display: flex; align-items: center; justify-content: center;
- font-size: 2rem; font-weight: 800;
- margin-bottom: 1rem;
-}
-.status-badge {
- background: #00FF88; color: #000;
- padding: 0.5rem 1rem; border-radius: 20px;
- font-size: 0.8rem; font-weight: 600;
-}
-.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.tech-tags span {
- background: rgba(0, 217, 255, 0.2);
- padding: 0.5rem 1rem; border-radius: 20px;
- font-size: 0.85rem;
-}
+    .theme-toggle {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        padding: 0.5rem;
+        border-radius: 50%; width: 40px; height: 40px;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        font-size: 1.2rem; transition: 0.3s;
+    }
+    .theme-toggle:hover { transform: scale(1.1); background: var(--bg-glass-hover); }
 
-/* Timeline */
-.timeline { position: relative; max-width: 1100px; margin: 0 auto; padding-left: 100px; }
-.timeline::before {
-   content: ''; position: absolute; left: 0;  transform: translateX(-50%);
- width: 2px; height: 100%;
- background: var(--gradient-3);
-}
-.timeline-item { position: relative; margin-bottom: 3rem; }
-.timeline-dot {
-   position: absolute; left: -9px; transform: translateX(0);  width: 20px; height: 20px;  background: var(--primary);
- border-radius: 50%;
- border: 4px solid var(--bg-dark);
- z-index: 1;
-}
-.timeline-content {
- background: rgba(255,255,255,0.05);
- padding: 2rem; border-radius: 15px;
- border: 1px solid rgba(255,255,255,0.1);
- transition: all 0.4s;
-   max-width: 100%; width: 100%; word-wrap: break-word; overflow-wrap: break-word; margin-left: 30px;}
-.timeline-content:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2); }.timeline-date { color: var(--primary); font-weight: 600; }
-.skills-used { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.skills-used span {
- background: rgba(108, 92, 231, 0.2);
- padding: 0.4rem 0.8rem; border-radius: 15px;
- font-size: 0.85rem;
-}
+    /* Mobile Menu Button */
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
-/* Skills */
-.skills { background: rgba(255,255,255,0.02); }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-.skill-card {
- background: rgba(255,255,255,0.05);
- padding: 1.5rem; border-radius: 15px;
- border: 1px solid rgba(255,255,255,0.1);
- transition: all 0.4s;
-}
-.skill-card:hover { transform: translateY(-10px) scale(1.05); }
-.skill-icon {
- width: 60px; height: 60px;
- background: var(--gradient-3);
- border-radius: 15px;
- display: flex; align-items: center; justify-content: center;
- font-weight: 800; margin-bottom: 1rem;
-}
-.skill-bar {
- width: 100%; height: 8px;
- background: rgba(255,255,255,0.1);
- border-radius: 10px; overflow: hidden;
- margin-top: 1rem;
-}
-.skill-progress {
- height: 100%; background: var(--gradient-3);
- border-radius: 10px; transition: width 1.5s ease;
-}
+    /* --- HERO SECTION --- */
+    .hero {
+        min-height: 90vh; display: flex;
+        align-items: center; justify-content: space-between;
+        padding: 4rem 2rem; position: relative; overflow: hidden;
+    }
+    .hero-content { flex: 1; z-index: 2; max-width: 600px; }
+    
+    .glitch {
+        font-size: 3.5rem; font-weight: 800;
+        margin-bottom: 0.5rem; line-height: 1.1;
+        background: linear-gradient(to right, var(--text-main), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .typewriter h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem; height: 30px;}
+    .cursor { animation: blink 1s infinite; }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    
+    .tagline { font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6; }
+    
+    .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+        padding: 0.8rem 2rem; border-radius: 50px;
+        font-weight: 600; text-decoration: none;
+        transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .btn-primary {
+        background: var(--gradient-3); color: #000; border: none;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3); }
+    
+    .btn-secondary {
+        background: rgba(0, 217, 255, 0.1); color: var(--primary);
+        border: 1px solid var(--primary);
+    }
+    .btn-secondary:hover { background: var(--primary); color: #000; }
 
-/* Contact */
-.contact { background: rgba(255,255,255,0.02); }
-.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; }
-.contact-link {
- display: flex; align-items: center; gap: 1rem;
- padding: 1rem; margin-bottom: 1rem;
- background: rgba(255,255,255,0.05);
- border-radius: 10px; text-decoration: none;
- color: var(--text-light); transition: all 0.3s;
-}
-.contact-link:hover { background: rgba(0, 217, 255, 0.1); }
-form input, form textarea {
- width: 100%; padding: 1rem; margin-bottom: 1rem;
- background: rgba(255,255,255,0.1);
- border: 1px solid rgba(255,255,255,0.2);
- border-radius: 10px; color: var(--text-light);
- font-family: 'Inter', sans-serif;
-}
-form input:focus, form textarea:focus {
- outline: none; border-color: var(--primary);
-}
+    /* 3D Cube */
+    .hero-3d { perspective: 1000px; display: flex; justify-content: center; align-items: center; }
+    .cube {
+        width: 180px; height: 180px;
+        position: relative; transform-style: preserve-3d;
+        animation: rotateCube 15s infinite linear;
+    }
+    @keyframes rotateCube {
+        from { transform: rotateX(-15deg) rotateY(0deg); }
+        to { transform: rotateX(-15deg) rotateY(360deg); }
+    }
+    .cube-face {
+        position: absolute; width: 180px; height: 180px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2rem; font-weight: 800; color: #fff;
+        border: 2px solid rgba(0, 217, 255, 0.5);
+        background: rgba(0, 217, 255, 0.1);
+        backdrop-filter: blur(2px);
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.2) inset;
+    }
+    .front  { transform: rotateY(0deg) translateZ(90px); }
+    .back   { transform: rotateY(180deg) translateZ(90px); }
+    .right  { transform: rotateY(90deg) translateZ(90px); }
+    .left   { transform: rotateY(-90deg) translateZ(90px); }
+    .top    { transform: rotateX(90deg) translateZ(90px); }
+    .bottom { transform: rotateX(-90deg) translateZ(90px); }
 
-/* Footer */
-.footer {
- padding: 3rem 2rem; text-align: center;
- border-top: 1px solid rgba(255,255,255,0.1);
-}
+    /* --- SECTIONS --- */
+    section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); }
+    .section-title {
+        font-size: 2.5rem; font-weight: 800; text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-main);
+    }
+
+    /* About */
+    .about-content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+    .about-text .lead { font-size: 1.2rem; color: var(--primary); font-weight: 600; margin-bottom: 1rem; }
+    .about-text p { line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+    .stat-card {
+        background: var(--bg-glass);
+        padding: 1.5rem; border-radius: 15px;
+        border: 1px solid var(--border-color);
+        text-align: center; transition: transform 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-5px); background: var(--bg-glass-hover); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    .profile-card {
+        background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(0, 217, 255, 0.05) 100%);
+        padding: 2.5rem; border-radius: 20px;
+        border: 1px solid var(--border-color);
+        text-align: center; position: relative;
+    }
+    .avatar {
+        width: 100px; height: 100px; border-radius: 50%;
+        background: var(--gradient-3);
+        margin: 0 auto 1.5rem;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.5rem; font-weight: 800; color: #000;
+    }
+    .status-badge {
+        background: rgba(0, 255, 136, 0.1); color: #00FF88; border: 1px solid #00FF88;
+        padding: 0.3rem 0.8rem; border-radius: 20px;
+        font-size: 0.75rem; font-weight: 700; display: inline-block; margin-bottom: 1rem;
+    }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; }
+    .tech-tags span {
+        background: var(--bg-glass); border: 1px solid var(--border-color);
+        color: var(--text-muted);
+        padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 2rem; }
+    .timeline::before {
+        content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+        width: 2px; background: linear-gradient(to bottom, var(--primary), transparent);
+    }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-dot {
+        position: absolute; left: -2.6rem; top: 0;
+        width: 16px; height: 16px; background: var(--bg-body);
+        border-radius: 50%; border: 2px solid var(--primary);
+    }
+    .timeline-content {
+        background: var(--bg-glass);
+        padding: 2rem; border-radius: 15px;
+        border: 1px solid var(--border-color);
+        transition: 0.3s;
+    }
+    .timeline-content:hover { transform: translateX(5px); background: var(--bg-glass-hover); border-color: var(--primary); }
+    .timeline-date { color: var(--primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+    .timeline-content h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .timeline-content h4 { font-size: 1rem; color: var(--text-muted); font-weight: 400; margin-bottom: 1rem; font-style: italic;}
+    .skills-used span {
+        display: inline-block; background: rgba(108, 92, 231, 0.1); border: 1px solid rgba(108, 92, 231, 0.2);
+        color: var(--text-main); padding: 0.3rem 0.7rem;
+        border-radius: 5px; font-size: 0.75rem; margin: 0.5rem 0.5rem 0 0;
+    }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .skill-card {
+        background: var(--bg-glass);
+        padding: 1.5rem; border-radius: 15px;
+        border: 1px solid var(--border-color);
+        transition: 0.3s; text-align: center;
+    }
+    .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 5px 15px var(--shadow); }
+    .skill-icon {
+        width: 50px; height: 50px; margin: 0 auto 1rem;
+        background: var(--bg-glass-hover);
+        border-radius: 12px; display: flex; align-items: center; justify-content: center;
+        font-weight: 700; color: var(--primary); font-size: 1.2rem;
+    }
+    .skill-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-top: 1rem; overflow: hidden; }
+    .skill-progress { height: 100%; background: var(--gradient-3); border-radius: 10px; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+    .contact-info p { color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; }
+    .contact-link {
+        display: flex; align-items: center; gap: 1rem;
+        padding: 1rem; background: var(--bg-glass);
+        border: 1px solid var(--border-color);
+        border-radius: 10px; margin-bottom: 1rem;
+        color: var(--text-main); text-decoration: none;
+        transition: 0.3s;
+    }
+    .contact-link:hover { background: var(--bg-glass-hover); border-color: var(--primary); }
+    
+    form input, form textarea {
+        width: 100%; padding: 1rem; margin-bottom: 1rem;
+        background: var(--bg-glass);
+        border: 1px solid var(--border-color);
+        border-radius: 10px; color: var(--text-main);
+        font-family: inherit; transition: 0.3s;
+    }
+    form input:focus, form textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px var(--shadow); }
+
+    /* Footer */
+    .footer { padding: 3rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 900px) {
+        .about-content, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+        .hero-content { margin-bottom: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+        .nav { padding: 1rem; }
+        .hamburger { display: block; }
+        .nav-btn { display: none; }
+        
+        .nav-menu {
+            position: fixed; top: 70px; left: 0; right: 0;
+            background: var(--bg-nav);
+            flex-direction: column; padding: 2rem; gap: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            clip-path: circle(0% at 100% 0);
+            transition: clip-path 0.5s ease-in-out;
+        }
+        .nav-menu.active { clip-path: circle(150% at 100% 0); }
+        
+        .hero { flex-direction: column-reverse; text-align: center; padding-top: 6rem; display: block; }
+        .hero-content { margin-top: 4rem; }
+        .cta-buttons { justify-content: center; }
+        .glitch { font-size: 2.5rem; }
+        
+        .cube { width: 140px; height: 140px; margin: 0 auto; }
+        .cube-face { width: 140px; height: 140px; font-size: 1.5rem; }
+        .front  { transform: rotateY(0deg) translateZ(70px); }
+        .back   { transform: rotateY(180deg) translateZ(70px); }
+        .right  { transform: rotateY(90deg) translateZ(70px); }
+        .left   { transform: rotateY(-90deg) translateZ(70px); }
+        .top    { transform: rotateX(90deg) translateZ(70px); }
+        .bottom { transform: rotateX(-90deg) translateZ(70px); }
+    }
 </style>
 </head>
 <body>
 
 <nav class="nav">
- <div class="logo">RJ</div>
- <ul class="nav-menu">
-   <li><a href="#home">Home</a></li>
-   <li><a href="#about">About</a></li>
-   <li><a href="#experience">Experience</a></li>
-   <li><a href="#skills">Skills</a></li>
-   <li><a href="#contact">Contact</a></li>
-         <li><a href="#" class="cta-button" style="background: var(--primary); padding: 0.5rem 1.5rem; border-radius: 25px;">📄 Download Resume</a></li>
- </ul>
- <button class="theme-toggle">🌙</button>
+    <a href="#" class="logo">RJ</a>
+    <div class="nav-wrapper">
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        <a href="resume.pdf" download="Rahul_Jukanti_Resume.pdf" class="nav-btn">
+            Download CV ⬇
+        </a>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">🌙</button>
+        <div class="hamburger" id="hamburger">☰</div>
+    </div>
 </nav>
 
 <section id="home" class="hero">
- <div class="hero-content">
-   <h1 class="glitch">Rahul Jukanti</h1>
-   <div class="typewriter">
-     <h2>I'm a <span class="typed-text"></span><span class="cursor">|</span></h2>
-   </div>
-   <p class="tagline">Transforming Industrial Design Workflows with Code</p>
-   <div class="cta-buttons">
-     <a href="#contact" class="btn btn-primary">Get In Touch</a>
-     <a href="#experience" class="btn btn-secondary">View Work</a>
-   </div>
- </div>
- <div class="hero-3d">
-   <div class="cube">
-     <div class="cube-face front">CAD</div>
-     <div class="cube-face back">C#</div>
-     <div class="cube-face right">NX</div>
-     <div class="cube-face left">API</div>
-     <div class="cube-face top">CODE</div>
-     <div class="cube-face bottom">3D</div>
-   </div>
- </div>
+    <div class="hero-content">
+        <h1 class="glitch">Rahul Jukanti</h1>
+        <div class="typewriter">
+            <h2>I'm a <span class="typed-text"></span><span class="cursor">|</span></h2>
+        </div>
+        <p class="tagline">Transforming Industrial Design Workflows with Code.<br>Specialized in NX Open, C#, and Automation.</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            
+            <a href="resume.pdf" download="Rahul_Jukanti_Resume.pdf" class="btn btn-secondary">
+                📄 Download Resume
+            </a>
+        </div>
+    </div>
+    <div class="hero-3d">
+        <div class="cube">
+            <div class="cube-face front">CAD</div>
+            <div class="cube-face back">C#</div>
+            <div class="cube-face right">NX</div>
+            <div class="cube-face left">API</div>
+            <div class="cube-face top">CODE</div>
+            <div class="cube-face bottom">3D</div>
+        </div>
+    </div>
 </section>
 
-<section id="about" class="about">
- <div class="container">
-   <h2 class="section-title">About Me</h2>
-   <div class="about-content">
-     <div class="about-text">
-       <p class="lead">CAD Automation Engineer passionate about bridging software engineering and mechanical design.</p>
-       <p>With 2+ years of experience at Citius Solutions, I specialize in developing intelligent CAD automation solutions using NX Open API and C#. My expertise lies in creating custom engineering workflows that transform how centrifugal fan systems are designed and manufactured.</p>
-       <div class="stats-grid">
-         <div class="stat-card">
-           <div class="stat-number">2+</div>
-           <div class="stat-label">Years Experience</div>
-         </div>
-         <div class="stat-card">
-           <div class="stat-number">16+</div>
-           <div class="stat-label">Technical Skills</div>
-         </div>
-         <div class="stat-card">
-           <div class="stat-number">10+</div>
-           <div class="stat-label">Custom Tools Deployed
-         </div>
-         <div class="stat-card">
-           <div class="stat-number">500++</div>
-           <div class="stat-label">Post Hours Saved Annually
-         </div>
-       </div>
-     </div>
-     <div class="profile-card">
-       <div class="avatar">RJ</div>
-       <span class="status-badge">Available for Work</span>
-       <h3>Application Programmer</h3>
-       <p>Hyderabad, Telangana, India</p>
-       <div class="tech-tags">
-         <span>NX Open</span>
-         <span>C#</span>
-         <span>CAD Customization</span>
-       </div>
-     </div>
-   </div>
- </div>
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p class="lead">CAD Automation Engineer passionate about bridging software engineering and mechanical design.</p>
+                <p>With 2+ years of experience at Citius Solutions, I specialize in developing intelligent CAD automation solutions using NX Open API and C#. My expertise lies in creating custom engineering workflows that transform how centrifugal fan systems are designed and manufactured.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">16+</span>
+                        <span class="stat-label">Technical Skills</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Custom Tools</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Hours Saved</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-card">
+                <div class="avatar">RJ</div>
+                <span class="status-badge">Available for Work</span>
+                <h3>Application Programmer</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Hyderabad, Telangana, India</p>
+                <div class="tech-tags">
+                    <span>NX Open</span>
+                    <span>C#</span>
+                    <span>CAD Customization</span>
+                    <span>Automation</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="experience">
- <div class="container">
-   <h2 class="section-title">Professional Journey</h2>
-   <div class="timeline">
-     <div class="timeline-item">
-       <div class="timeline-dot"></div>
-       <div class="timeline-content">
-         <div class="timeline-date">Nov 2023 - Present</div>
-         <h3>Application Programmer</h3>
-         <h4>Citius Solutions Pvt Ltd</h4>
-         <p>Design and develop custom CAD automation applications using NX Open API and C# .NET, specializing in industrial centrifugal fan systems for improved engineering workflows.</p>
-         <div class="skills-used">
-           <span>NX Open</span>
-           <span>C#</span>
-           <span>Siemens NX</span>
-           <span>CAD Automation</span>
-         </div>
-       </div>
-     </div>
-     <div class="timeline-item">
-       <div class="timeline-dot"></div>
-       <div class="timeline-content">
-         <div class="timeline-date">Apr 2023 - Oct 2023</div>
-         <h3>Graduate Engineering Trainee</h3>
-         <h4>Citius Solutions Pvt Ltd</h4>
-         <p>Gained hands-on experience with Computer-Aided Design (CAD), Visual Basic .NET (VB.NET), and CAD customization techniques.</p>
-         <div class="skills-used">
-           <span>CAD/CAM</span>
-           <span>VB.NET</span>
-           <span>Python</span>
-           <span>HTML/CSS</span>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+    <div class="container">
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Nov 2023 - Present</span>
+                    <h3>Application Programmer</h3>
+                    <h4>Citius Solutions Pvt Ltd</h4>
+                    <p>Design and develop custom CAD automation applications using NX Open API and C# .NET, specializing in industrial centrifugal fan systems for improved engineering workflows.</p>
+                    <div class="skills-used">
+                        <span>NX Open</span>
+                        <span>C#</span>
+                        <span>Siemens NX</span>
+                        <span>CAD Automation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Apr 2023 - Oct 2023</span>
+                    <h3>Graduate Engineering Trainee</h3>
+                    <h4>Citius Solutions Pvt Ltd</h4>
+                    <p>Gained hands-on experience with Computer-Aided Design (CAD), Visual Basic .NET (VB.NET), and CAD customization techniques.</p>
+                    <div class="skills-used">
+                        <span>CAD/CAM</span>
+                        <span>VB.NET</span>
+                        <span>Python</span>
+                        <span>HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-       <!-- Projects Section -->
- <section id="projects" class="projects">
-   <div class="container">
-     <h2 class="section-title">Featured Projects</h2>
-     <h3 style="color: var(--primary); margin-bottom: 3rem;">✨ CAD Automation Case Studies</h3>
-     <div class="timeline">
-       <div class="timeline-item">
-         <div class="timeline-dot"></div>
-         <div class="timeline-content">
-           <h3>Automated BOM Generator</h3>
-           <h4 style="color: var(--primary);">NX Open API | C# | XML Processing</h4>
-           <p><strong>Challenge:</strong> Manual BOM creation was time-consuming and error-prone, taking 2-3 hours per assembly.</p>
-           <p><strong>Solution:</strong> Developed a C# plugin that parses 3D assembly data and automatically generates formatted Excel BOMs with accurate part numbers, quantities, and material specifications.</p>
-           <p><strong>Impact:</strong> Reduced BOM generation time by 85%, eliminating human errors in data entry. Now processes 200+ parts in under 10 minutes.</p>
-         </div>
-       </div>
-       <div class="timeline-item">
-         <div class="timeline-dot"></div>
-         <div class="timeline-content">
-           <h3>Centrifugal Fan Blueprint Automation</h3>
-           <h4 style="color: var(--primary);">NX Open | C# | Industrial Design</h4>
-           <p><strong>Challenge:</strong> Engineers spent hours creating repetitive fan design blueprints with minor variations.</p>
-           <p><strong>Solution:</strong> Built an intelligent automation tool that generates complete fan assembly drawings based on user-specified parameters (diameter, blade count, housing specifications).</p>
-           <p><strong>Impact:</strong> Reduced drafting time by 40%, allowing engineers to focus on design optimization rather than repetitive drawing tasks.</p>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
-
-<section id="skills" class="skills">
- <div class="container">
-   <h2 class="section-title">Technical Arsenal</h2>
-   <h3 style="color: var(--primary); margin-bottom: 2rem;">Core Skills</h3>
-   <div class="skills-grid">
-     <div class="skill-card">
-       <div class="skill-icon">C#</div>
-       <div class="skill-name">C# / .NET</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-     </div>
-     <div class="skill-card">
-       <div class="skill-icon">NX</div>
-       <div class="skill-name">Siemens NX</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-     </div>
-     <div class="skill-card">
-       <div class="skill-icon">API</div>
-       <div class="skill-name">NX Open API</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-     </div>
-     <div class="skill-card">
-       <div class="skill-icon">VB</div>
-       <div class="skill-name">VB.NET</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-     </div>
-     <div class="skill-card">
-       <div class="skill-icon">Py</div>
-       <div class="skill-name">Python</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-     </div>
-     <div class="skill-card">
-       <div class="skill-icon">CAD</div>
-       <div class="skill-name">CAD Customization</div>
-       <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
-     </div>
-   </div>
- </div>
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Automated BOM Generator</h3>
+                    <h4 style="color: var(--primary);">NX Open API | C# | XML Processing</h4>
+                    <p><strong>Challenge:</strong> Manual BOM creation was time-consuming and error-prone, taking 2-3 hours per assembly.</p>
+                    <p><strong>Solution:</strong> Developed a C# plugin that parses 3D assembly data and automatically generates formatted Excel BOMs.</p>
+                    <p><strong>Impact:</strong> Reduced BOM generation time by 85%, eliminating human errors. Now processes 200+ parts in under 10 minutes.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Centrifugal Fan Blueprint Automation</h3>
+                    <h4 style="color: var(--primary);">NX Open | C# | Industrial Design</h4>
+                    <p><strong>Challenge:</strong> Engineers spent hours creating repetitive fan design blueprints with minor variations.</p>
+                    <p><strong>Solution:</strong> Built an intelligent automation tool that generates complete fan assembly drawings based on user-specified parameters.</p>
+                    <p><strong>Impact:</strong> Reduced drafting time by 40%, allowing engineers to focus on design optimization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="contact" class="contact">
- <div class="container">
-   <h2 class="section-title">Let's Connect</h2>
-   <div class="contact-content">
-     <div>
-       <h3>Get in Touch</h3>
-       <p>I'm always interested in hearing about new opportunities in CAD customization and automation engineering.</p>
-             <p style="margin-bottom: 2rem; font-size: 1.1rem;">Email: <a href="mailto:rahuljukanti@gmail.com" style="color: var(--primary);">rahuljukanti@gmail.com</a></p>
-       <a href="https://www.linkedin.com/in/rahul-jukanti-114a2a2a6/" target="_blank" class="contact-link">
-         <span>💼</span>
-         <span>Connect on LinkedIn</span>
-       </a>
-       <div class="contact-link">
-         <span>📍</span>
-         <span>Hyderabad, Telangana, India</span>
-       </div>
-     </div>
-     <div>
-       <h3>Send a Message</h3>
-       <form>
-         <input type="text" placeholder="Your Name" required>
-         <input type="email" placeholder="Your Email" required>
-         <textarea placeholder="Your Message" rows="5" required></textarea>
-         <button type="submit" class="btn btn-primary">Send Message</button>
-       </form>
-     </div>
-   </div>
- </div>
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">C#</div>
+                <div class="skill-name">C# / .NET</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">NX</div>
+                <div class="skill-name">Siemens NX</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">API</div>
+                <div class="skill-name">NX Open API</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">VB</div>
+                <div class="skill-name">VB.NET</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">Py</div>
+                <div class="skill-name">Python</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">CAD</div>
+                <div class="skill-name">Automation</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>I'm always interested in hearing about new opportunities in CAD customization and automation engineering.</p>
+                
+                <a href="mailto:rahuljukanti@gmail.com" class="contact-link">
+                    <span>✉️</span>
+                    <span>rahuljukanti@gmail.com</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/rahul-jukanti-114a2a2a6/" target="_blank" class="contact-link">
+                    <span>💼</span>
+                    <span>Connect on LinkedIn</span>
+                </a>
+                
+                <div class="contact-link">
+                    <span>📍</span>
+                    <span>Hyderabad, Telangana, India</span>
+                </div>
+            </div>
+            <div>
+                <h3>Send a Message</h3>
+                <form onsubmit="event.preventDefault(); alert('Thanks for the message! (This is a demo)');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
 <footer class="footer">
- <div class="container">
-   <p>&copy; 2025 Rahul Jukanti. Innovating Design Through Code.</p>
-   <p style="font-style: italic; margin-top: 0.5rem; opacity: 0.7;">"The best automation solutions solve real pain points"</p>
- </div>
+    <div class="container">
+        <p>&copy; 2025 Rahul Jukanti. Innovating Design Through Code.</p>
+        <p style="font-style: italic; margin-top: 0.5rem; opacity: 0.7;">"The best automation solutions solve real pain points"</p>
+    </div>
 </footer>
 
 <script>
+// --- Typewriter Effect ---
 const texts = [
- 'CAD Automation Engineer',
- 'NX Open API Developer',
- 'C# .NET Programmer',
- 'Siemens NX Specialist',
- 'Industrial Design Innovator'
+    'CAD Automation Engineer',
+    'NX Open API Developer',
+    'C# .NET Programmer',
+    'Siemens NX Specialist'
 ];
 let textIndex = 0;
 let charIndex = 0;
@@ -549,68 +602,85 @@ const erasingDelay = 50;
 const newTextDelay = 2000;
 
 function type() {
- const currentText = texts[textIndex];
- if (isDeleting) {
-   typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
-   charIndex--;
- } else {
-   typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
-   charIndex++;
- }
- if (!isDeleting && charIndex === currentText.length) {
-   isDeleting = true;
-   setTimeout(type, newTextDelay);
- } else if (isDeleting && charIndex === 0) {
-   isDeleting = false;
-   textIndex = (textIndex + 1) % texts.length;
-   setTimeout(type, typingDelay);
- } else {
-   setTimeout(type, isDeleting ? erasingDelay : typingDelay);
- }
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+        typedTextSpan.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typedTextSpan.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
+    
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, newTextDelay);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, typingDelay);
+    } else {
+        setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+    }
+}
+document.addEventListener('DOMContentLoaded', () => setTimeout(type, newTextDelay));
+
+// --- Mobile Navigation ---
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+});
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.textContent = '☰';
+    });
+});
+
+// --- Theme Toggle ---
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
 }
 
-setTimeout(type, newTextDelay);
-
-// Theme toggle functionality
-const themeToggle = document.querySelector('.theme-toggle');
-let isDark = true;
-
 themeToggle.addEventListener('click', () => {
- isDark = !isDark;
- 
- if (isDark) {
-   // Dark mode
-   document.body.style.background = '#0A0E27';
-   document.body.style.color = '#F8F9FA';
-   themeToggle.textContent = '🌙';
- } else {
-   // Light mode
-   document.body.style.background = '#F8F9FA';
-   document.body.style.color = '#0A0E27';
-   themeToggle.textContent = '☀️';
-   
-   // Update sections for light mode
-   document.querySelectorAll('.about, .skills, .contact').forEach(section => {
-     section.style.background = 'rgba(0,0,0,0.02)';
-   });
- }
- 
- // Update all sections
- if (!isDark) {
-   document.querySelectorAll('section').forEach(section => {
-     section.style.background = section.classList.contains('about') || 
-                                section.classList.contains('skills') || 
-                                section.classList.contains('contact') ? 
-                                'rgba(0,0,0,0.03)' : 'transparent';
-   });
- } else {
-   document.querySelectorAll('.about').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
-   document.querySelectorAll('.skills').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
-   document.querySelectorAll('.contact').forEach(el => el.style.background = 'rgba(255,255,255,0.02)');
- }
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
+    localStorage.setItem('theme', newTheme);
+});
+
+// --- Active Link Highlight (Scroll Spy) ---
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(li => {
+        li.classList.remove('active');
+        if (li.getAttribute('href').includes(current)) {
+            li.classList.add('active');
+        }
+    });
 });
 </script>
 
 </body>
 </html>
- 
